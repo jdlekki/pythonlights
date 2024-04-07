@@ -12,6 +12,14 @@ async def getAllLights(network):
         bulbList.append(listMember)
     return bulbList
 
+def getAllLightsTest(network):
+    bulbList = []
+    for x in range(6):
+        listMember = BulbListMember(f"192.168.254.{x}",x)
+        bulbList.append(listMember)
+    return bulbList
+
+
 async def setLightColor(ip, red, green, blue):
     light = wizlight(ip)
     await light.turn_on(PilotBuilder(rgb = (red, green, blue)))
