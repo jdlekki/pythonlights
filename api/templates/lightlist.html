@@ -3,10 +3,17 @@
     <title>Lights!</title>
 </head>
 <body>
-    <ul id="navigation">
-    {% for bulb in lightList %}
-        <li>{{bulb}}</li>
-    {% endfor %}
-    </ul>
+    <h1>Set Lighting Colors!</h1>
+    <form method="post">
+        {% for bulb in lightList %}
+            <label for="{{bulb.listNumber}}">{{bulb.ip}} </label>
+            <br>
+            <input type="color" 
+                name="{{bulb.listNumber}}" 
+                value="{{ request.form['bulb.listNumber']}}">
+            <br>
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
 </body>
 </html>
