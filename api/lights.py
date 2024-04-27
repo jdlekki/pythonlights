@@ -24,6 +24,13 @@ async def setLightColor(ip, red, green, blue):
     light = wizlight(ip)
     await light.turn_on(PilotBuilder(rgb = (red, green, blue)))
 
+async def setLightPowerOff(ip):
+    light = wizlight(ip)
+    await light.turn_off()
+
+async def setLightPowerOn(ip):
+    light = wizlight(ip)
+    await light.turn_on()
 
 async def main():
     bulbs = await getAllLights("192.168.254.255")
