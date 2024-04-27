@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Light Panel {% endblock %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<div class="text-container">
+    <form method="post">
+        {% for bulb in lightList %}
+        <div class="row">
+            <div class="col">
+                <label for="{{bulb.listNumber}}">{{bulb.ip}} </label>
+            </div>
+            <div class="col">
+                <input type="color" 
+                name="{{bulb.listNumber}}" 
+                value="{{ request.form['bulb.listNumber']}}">
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}
